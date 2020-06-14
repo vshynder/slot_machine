@@ -34,7 +34,6 @@ export default class SlotMachine {
 
     this.insertIcons();
 
-    // this.isSpining = false;
     this.counter11 = 0;
     this.counter12 = 1;
     this.counter13 = 2;
@@ -182,7 +181,6 @@ export default class SlotMachine {
       this.wheel1 = this.generateWheels(15);
       this.wheel2 = this.generateWheels(16);
       this.wheel3 = this.generateWheels(13);
-      // console.log("disabled");
     }
   }
 
