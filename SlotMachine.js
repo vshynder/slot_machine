@@ -1,10 +1,18 @@
 export default class SlotMachine {
-  constructor(FPS = 10, canvasId = "#canvas", spinBtn = ".btn") {
+  constructor(
+    canvasScale = 1,
+    FPS = 10,
+    canvasId = "#canvas",
+    spinBtn = ".btn"
+  ) {
     this.FPS = FPS;
     this.canvas = document.querySelector(canvasId);
     this.ctx = this.canvas.getContext("2d");
+    this.canvasScale = canvasScale;
     this.canvas.width = 1920;
     this.canvas.height = 1080;
+    this.canvas.style.width = 1920 * this.canvasScale + "px";
+    this.canvas.style.height = 1080 * this.canvasScale + "px";
     this.spinBtn = document.querySelector(spinBtn);
     this.spinStopCounter1 = 0;
     this.spinStopCounter2 = 0;
@@ -27,6 +35,7 @@ export default class SlotMachine {
     this.makeFrame();
 
     this.insertSpin();
+    this.spinBtnPosition();
 
     this.wheel1 = this.generateWheels(15);
     this.wheel2 = this.generateWheels(16);
@@ -266,5 +275,12 @@ export default class SlotMachine {
     ) {
       alert("Congratulations, you won the jackpot!");
     }
+  }
+  spinBtnPosition() {
+    // this.spinBtn.style.position = "absolute";
+    this.spinBtn.style.top = 850 * this.canvasScale + "px";
+    this.spinBtn.style.left = 1500 * this.canvasScale + "px";
+    this.spinBtn.style.width = 144 * this.canvasScale + "px";
+    this.spinBtn.style.height = 144 * this.canvasScale + "px";
   }
 }
